@@ -1,0 +1,8 @@
+version = 1
+revision = 3
+requires-python = "==3.11.16"
+
+[[package]]
+name = "practice-llm"
+version = "0.1.0"
+source = { editable = "." }
