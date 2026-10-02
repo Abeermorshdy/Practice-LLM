@@ -1,0 +1,48 @@
+# Git
+.git
+.gitignore
+
+# Python cache / bytecode
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv
+venv
+.env
+
+# uv / pip caches
+.uv-cache
+.pip-cache
+
+# IDE / editor
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Test / coverage
+.pytest_cache
+.coverage
+htmlcov/
+.tox/
+
+# Build / dist (if any)
+dist/
+build/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Optional: local env files you don’t want in the image
+.env.local
+.env.*.local
