@@ -1,7 +1,7 @@
 [project]
 name = "practice-llm"
 version = "0.1.0"
-description = "Add your description here"
+description = "Prctice LLM With OPs"
 readme = "README.md"
 requires-python = "==3.11.16"
 dependencies = [
