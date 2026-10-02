@@ -1,23 +1,23 @@
-# Use an official Python image as base
-FROM python:3.11
+FROM python:3.11-slim
 
-# Install uv
-RUN pip install --no-cache-dir uv
+# Install curl (needed to download uv)
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
+# Install uv from official script
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Make uv available in PATH for subsequent layers
+ENV PATH="/root/.local/bin:$PATH"
+
 WORKDIR /app
 
-# Copy dependency files first (better layer caching)
 COPY pyproject.toml uv.lock* ./
 
-# Install dependencies with uv
-RUN uv sync --frozen --no-dev 
+RUN uv sync --no-install-project
 
-# Copy the rest of the code
 COPY . .
 
-# Set environment variables if needed
-# ENV YOUR_VAR=value
 
-# Default command (adjust to your entry point)
+
 CMD ["uv", "run", "app.py"]
