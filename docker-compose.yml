@@ -1,0 +1,15 @@
+services:
+  mongodb:
+    image: mongo:9.0.2
+    container_name: mongo
+    ports:
+      - "27007:27017"
+    volumes:
+      - './mogodb:/data/db'
+    networks:
+      - backend
+    restart: 
+        always
+
+networks:
+   backend:
